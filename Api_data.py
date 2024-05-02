@@ -1,3 +1,6 @@
+#Problem: To collect the weather data using API
+#and store it in a local SQLite database
+# so basically data is structured here so we can process it using the json library in python
 import requests
 import sqlite3
 import json
