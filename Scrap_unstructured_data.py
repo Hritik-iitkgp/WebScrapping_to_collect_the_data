@@ -1,3 +1,19 @@
+# TASK : collect  summer olympics data from its Wikipedia page and
+#  process it using Python's urllib3 , requests and BeautifulSoup library and store the collected information in a SQLite database.
+
+# STEPS :
+# --  Collect the data from, https://en.wikipedia.org/wiki/Summer_Olympic_Games .
+# --  Create a database Create aSQLite database named 'OlympicsData.db' and a table
+#  named'SummerOlympics' with the respective columns
+# -- Fetch the HTML data from the webpage that lists information about the Summer Olympics.
+# -- Analyze the HTML structure to identify the sections or elements containing the URLs of individual Summer Olympics wiki pages.
+# -- Utilize parsing techniques, such as using libraries like BeautifulSoup in Python, to extract these URLs.
+# -- Apply filtering criteria to select the URLs corresponding to two random Olympics that occurred within the last 50 years (from 1968 to 2020).
+# -- Output or store these selected URLs for further processing or analysis.
+# --  For each of the pages of your two selected summerolympics, extract the data (with the help
+#  of BeautifulSoup) mentioned in step 2 and insert in the database
+
+
 from bs4 import BeautifulSoup
 import urllib
 from urllib.request import urlopen
@@ -9,11 +25,13 @@ def createDatabaseConnect(dbName):
 	con = sqlite3.connect(dbName)
 	cur = con.cursor()
 	return cur , con
-
+# whenever we request for any website it will return the normal html file which is completely unstructured
 url = "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
 html = urlopen(url)
 SummerOlympics = html.read()
+# so to collect information from such sources we use python library bs4 (beautiful soup which is desined to process the html and others) 
 soup = BeautifulSoup(SummerOlympics, 'html.parser')
+## As per Required task we need to scrap the three columns Name, WikipediaURL, Year, HostCity, ParticipatingNations, Atheletes, Sports, Rank_1_nation, Rank_2_nation, Rank_3_nation
 tables = soup.find_all('table',attrs={'class':'sortable'})
 i=1
 links=[]
@@ -53,6 +71,8 @@ cursor.execute(query)
 url = "https://en.wikipedia.org"
 m=1
 ranks_of_nations=[]
+## we will parse the and store these, WikipediaURL, Year, HostCity, ParticipatingNations, Atheletes, Sports, Rank_1_nation, Rank_2_nation, Rank_3_nation  
+# as structured data for all the pages
 for i in samples:
     html = urlopen(url+i)
     list_countries=[]
