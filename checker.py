@@ -1,3 +1,5 @@
+# Task is to determine weather the data is collected or not for all website if yes then provide the response to the some question
+
 from bs4 import BeautifulSoup
 import urllib
 from urllib.request import urlopen
@@ -12,8 +14,6 @@ def createDatabaseConnect(dbName):
 # create table and store the details
 dbName = "OlympicsData.db"
 cursor,con = createDatabaseConnect(dbName)
-
-
 query = "SELECT * from SummerOlympics"
 result = cursor.execute(query)
 flag=0
@@ -37,6 +37,7 @@ if(flag==0):
     for i in result:
         sum+=int(i[0])
         count+=1
+    # print the average number of athelete
     print("Average number of athelete: ",sum//count)
     query = "SELECT Rank_1_nation,Rank_2_nation,Rank_3_nation from SummerOlympics"
     result = cursor.execute(query)
