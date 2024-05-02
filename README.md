@@ -1,10 +1,10 @@
-Web Scraping with Python
+# Web Scraping with Python
 
 Here we will learn How to collect data from different ways, like through API, through unstructured data like website and and to store them in database
 in structured manner so that for futher it is better to analyse it.
 We'll use the basic architecture of a scraper and utilize various Python libraries for these tasks.
 
-Setting Up Your Environment
+# Setting Up Your Environment
 
 requests and urllib3: For sending GET requests and receiving data.
 json: For processing structured data.
@@ -13,7 +13,7 @@ sqlite3: For storing data in a local SQLite database.
 random: For random sampling.
 Command to install the python library: pip3 install <libraryname>
 
-1: Collect and Store Structured JSON Data
+## 1: Collect and Store Structured JSON Data
 Here We collect weather data from the OpenWeatherMap API and store it in SQLite database.
 
 Make API calls to the OpenWeatherMap API using your API key.
@@ -22,7 +22,7 @@ Create a SQLite database named Weather.db and a table named city_weather to stor
 Insert the extracted data into the city_weather table.
 Test your system with three to five different cities of your choice, included in a test function in Api_data.py
 
-2: Collecting, Storing, and Processing Unstructured Data (i.e webpages)
+## 2: Collecting, Storing, and Processing Unstructured Data (i.e webpages)
 
 Here we were collecting information about Summer Olympics from its Wikipedia page, processing the data, and storing it in a SQLite database.
 
@@ -51,11 +51,11 @@ What is the average number of countries participating in the two Olympics?
 Print the overlap (i.e., common nations) within <Rank_1_nation, Rank_2_nation, and Rank_3_nation> for your chosen two years.
 Done in unstructured data.py
 
-3: Using Multiple Processes to enhance the speed
+## 3: Using Multiple Processes to enhance the speed
 
 In this task, we will enhance the data collection process by utilizing multiple processes for speed up. The goal is to collect information about different Summer Olympics from Wikipedia pages and store the data in a SQLite database.
 
-Task Description
+### Task Description
 
 Handler Function: Write a handler function that performs the following tasks:
 Collect the main page of Summer Olympics Wikipedia.
