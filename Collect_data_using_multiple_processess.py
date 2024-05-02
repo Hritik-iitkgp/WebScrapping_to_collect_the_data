@@ -10,6 +10,7 @@ def createDatabaseConnect(dbName):
 	cur = con.cursor()
 	return cur , con
 
+
 url = "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
 html = urlopen(url)
 SummerOlympics = html.read()
@@ -29,8 +30,14 @@ for i in links:
         links.remove(i)
     else:
         urls.append(i)
-links=urls          
+links=urls
+#use random.sample for random sampling to find the possible links and run it all processing through multiple processess
+
 samples=['/wiki/1976_Summer_Olympics', '/wiki/2016_Summer_Olympics', '/wiki/2008_Summer_Olympics', '/wiki/1972_Summer_Olympics', '/wiki/2004_Summer_Olympics', '/wiki/1984_Summer_Olympics', '/wiki/2020_Summer_Olympics', '/wiki/2012_Summer_Olympics', '/wiki/2000_Summer_Olympics', '/wiki/1988_Summer_Olympics']
+
+#For each of the pages of your two selected summer olympics, extract the data
+#Name, WikipediaURL, Year, HostCity, ParticipatingNations, Atheletes, Sports, Rank_1_nation, Rank_2_nation, Rank_3_nation
+
 # create table and store the details
 dbName = "OlympicsData.db"
 cursor,con = createDatabaseConnect(dbName)
