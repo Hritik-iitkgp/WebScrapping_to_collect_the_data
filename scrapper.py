@@ -12,6 +12,11 @@ def createDatabaseConnect(dbName):
 # create table and store the details
 dbName = "OlympicsData.db"
 cursor,con = createDatabaseConnect(dbName)
+
+#fetch the rows where done=0 that's means that data is not fetched yet.
+
+ # After that it will fetch the wikipedia page using URL in the WikipediaURL column
+# Next using beautifulSoup  parse the page and update the columns
 query = "SELECT id,done,WikipediaURL from SummerOlympics where done='0'"
 result = cursor.execute(query)
 results=cursor.fetchall()
